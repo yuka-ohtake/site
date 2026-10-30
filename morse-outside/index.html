@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>morse outside</title>
+  <!-- p5.jsのライブラリをCDN経由で読み込み（修正箇所） -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <!-- 作成したsketch.jsを読み込む -->
+  <script src="sketch.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px 0;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+    }
+    
+    .sketch-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .sketch-title {
+      color: #64ffc8;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-bottom: 12px;
+      text-shadow: 0 0 5px rgba(100, 255, 200, 0.3);
+    }
+    
+    .canvas-container {
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 0 20px rgba(100, 255, 200, 0.2);
+      line-height: 0;
+      position: relative; /* 入力フォームを重ねるための設定 */
+    }
+
+    /* 入力ボックス */
+    .morse-input-box {
+      position: absolute;
+      left: 175px; /* 「KEY INPUT (Roma-ji):」の文字のすぐ右に配置 */
+      bottom: 10px;
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.5); /* 白色の下線 */
+      color: rgba(255, 255, 255, 0.7); /* 白色文字 */
+      font-family: "Hiragino Sans", "Meiryo", sans-serif;
+      font-size: 13px;
+      width: 580px;
+      outline: none;
+      padding: 2px 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1つ目の自動モールス -->
+  <div class="sketch-group">
+    <div class="sketch-title">⚪︎試作1：MORSE − Auto</div>
+    <div id="sketch-holder1" class="canvas-container"></div>
+  </div>
+
+  <!-- 2つ目のタイピングUI -->
+  <div class="sketch-group">
+    <div class="sketch-title">⚪︎試作2：Kana MORSE - Manual typing</div>
+    <div id="sketch-holder2" class="canvas-container">
+      <!-- 画面の上に直接入力ボックスを埋め込む -->
+      <input type="text" id="morse-input" class="morse-input-box" placeholder="ここにローマ字をタイピングしてください" autocomplete="off">
+    </div>
+  </div>
+
+</body>
+</html>
